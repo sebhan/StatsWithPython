@@ -1,8 +1,9 @@
 import random
 
 array = []
+size = 5
 
-for i in range(5):
+for i in range(size):
     array.append(random.random())
 
 array = sorted(array)
@@ -16,8 +17,23 @@ def median(array):
     else:
         arrayHalf = int(arrayHalf-0.5)
         arrayMedian = array[arrayHalf]
-    return arrayMedian
+    return arrayMedian, arrayHalf
 
-print "Median:", median(array)
+arrayMedian = median(array)[0]
+arrayHalf = median(array)[1]
+
+lowerHalf = array[0:(arrayHalf+1)]
+upperHalf = array[arrayHalf:size]
+
+firstQuartile = median(lowerHalf)[0]
+thirdQuartile = median(upperHalf)[0]
+
+print array
+print lowerHalf
+print upperHalf
+
 print "Minimum:", min(array)
+print firstQuartile
+print "Median:", arrayMedian
+print thirdQuartile
 print "Maximum:", max(array)
