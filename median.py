@@ -1,7 +1,7 @@
 import random
 
 array = []
-size = 500
+size = 51
 
 for i in range(size):
     array.append(random.random())
@@ -28,8 +28,11 @@ upperHalf = array[arrayHalf:size]
 firstQuartile = median(lowerHalf)[0]
 thirdQuartile = median(upperHalf)[0]
 
+arrayMean = sum(array)/size
+
 print "Minimum:", "\t", min(array)
 print "First quartile:", firstQuartile
 print "Median:", "\t", arrayMedian
+print "Mean", "\t\t", arrayMean
 print "Third quartile:", thirdQuartile
 print "Maximum:", "\t", max(array)
